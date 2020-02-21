@@ -4,9 +4,15 @@ version = "0.1.0"
 authors = ["Zicklag <zicklag@katharostech.com>"]
 edition = "2018"
 
-# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+[features]
+default = ["gl"]
+gl = ["gfx-backend-gl", "gfx-backend-gl/glutin"]
 
 [dependencies]
+winit = "0.20.0"
+anyhow = "1.0"
+hal = { package = "gfx-hal", version = "0.4", path = "/home/zicklag/git/other/gfx/src/hal" }
+gfx-backend-gl = { path = "/home/zicklag/git/other/gfx/src/backend/gl", version = "0.4", optional = true }
 
 [[bin]]
 name = "test1"
